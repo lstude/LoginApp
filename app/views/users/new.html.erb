@@ -1,0 +1,32 @@
+<% if @user.errors.present? %>
+<p class= 'notice1'>Sorry, You Fail at Life. Here's Why:</p>
+<% @user.errors.full_messages.each do |message| %>
+	<li class='notice'><%= message %></li><br>
+<% end %>
+<% else %>
+<h1>Sign Up</h1>
+<% end %>
+
+<%= form_for @user do |f| %>
+
+<%= f.label :first, "First Name:" %>
+<%= f.text_field :first %>
+
+<%= f.label :label, "Last Name:" %>
+<%= f.text_field :last %>
+
+<%= f.label :email, "Email:" %>
+<%= f.text_field :email %>
+
+<%= f.label :password, "Password:" %>
+<%= f.password_field :password %>
+
+<%= f.label :password_confirmation, "Confirm Password:" %>
+<%= f.password_field :password_confirmation %>
+
+<%= f.submit "Sign Up" %>
+
+
+<% end %>
+
+

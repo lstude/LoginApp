@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>This is Me Practicing Logins!</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<h1>This App Was Created to Help Me Practice Logins</h1>
+
+<% if flash[:notice] %>
+<p class='notice'><%= flash[:notice] %>
+<% end %>
+
+
+<% if @current_user %>
+<%= link_to "Profile", user_url(@current_user.id) %> |
+<%= link_to "Sign Out", sign_out_url %>
+<% else %>
+<%= link_to "Sign In", sign_in_url %>
+<% end %>
+
+
+<%= yield %>
+
+</body>
+</html>
